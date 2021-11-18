@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="top">
+    <a href="https://memphis-eats.web.app/" target="_blank">
+      <img class="logo" src="assets/img/logo.png" alt="Memphis Eats Administration"><br>
+      <span class="title">Memphis Eats Administration</span>
+    </a>
+  </div>
+  <div class="form">
+    <nz-card class="card">
+      <form nz-form [formGroup]="rForm">
+        <nz-form-item>
+          <nz-form-control nzErrorTip=" please enter a valid email!">
+            <nz-input-group nzPrefixIcon="mail">
+              <input type="text" nz-input nzSize="large" formControlName="email" placeholder="email"/>
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="UserName length at least 3">
+            <nz-input-group nzPrefixIcon="user">
+              <input type="text" nz-input nzSize="large" formControlName="name" placeholder="UserName"/>
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Password length at least 6">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input nzSize="large" formControlName="pwd" placeholder="Password"/>
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control style="text-align: center">
+            <button nz-button class="login-form-button" nzType="primary"
+                    [nzLoading]="isLoading" [disabled]="!rForm.valid" (click)="onSignup()">
+              Sign Up
+            </button>
+            <button nz-button class="login-form-button" nzType="danger" routerLink="/login">Login</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+       <div style="text-align:center;"> 
+      <button nz-button  nzType="secondary" routerLink="/forgot-pass">Forgot Password?</button>
+    </div>
+    </nz-card>
+ 
+
+  </div>
+  <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+
+

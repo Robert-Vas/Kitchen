@@ -1,0 +1,124 @@
+<div>
+  <form nz-form [formGroup]="dishesForm">
+    <div style="text-align:center;font-size:25px;">Dish Description</div>
+     <hr>
+    <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="name_en">Dish Name (English)</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="Name must be at least 3 characters">
+        <input nz-input formControlName="name_en"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+       <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="name_sp">Dish Name (Spanish)</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="Name must be at least 3 characters">
+        <input nz-input formControlName="name_sp"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="desc_en">Description (English)</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="Description must be at least 3 characters">
+        <textarea rows="3" nz-input formControlName="desc_en"></textarea>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+       <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="desc_sp">Description (Spanish)</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="Description must be at least 3 characters">
+        <textarea rows="3" nz-input formControlName="desc_sp"></textarea>
+      </nz-form-control>
+    </nz-form-item>
+    <hr>
+    <div style="text-align:center;font-size:25px;">Dish Nutrition Info</div>
+    <hr>
+    <nz-form-item *ngFor="let fields of nutritionFieldsList">  
+    <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="{{fields.id}}">{{fields.name_en}} in {{fields.measurement_type}}</nz-form-label>
+      <nz-form-control [nzSm]="4" [nzXs]="24" >
+        <nz-input-group nzAddOnAfter="{{fields.measurement_display}}">
+         <nz-input-number formControlName="{{fields.id}}" [nzStep]="0.1"></nz-input-number>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <hr>
+    <div style="text-align:center;font-size:25px;">Dish Details</div>
+    <hr>
+    <nz-form-item>  
+    <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="price">Price</nz-form-label>
+      <nz-form-control [nzSm]="6" [nzXs]="24" nzErrorTip="required">
+          <nz-input-number [nzFormatter]="formatterDollar" [nzParser]="parserDollar" formControlName="price" [nzMin]="0.1" [nzMax]="1000" [nzStep]="1"></nz-input-number>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="prep_minutes">Prep Time Required</nz-form-label>
+      <nz-form-control [nzSm]="4" [nzXs]="24" nzErrorTip="required">
+         <nz-input-group nzAddOnAfter="min">
+          <nz-input-number formControlName="prep_minutes" [nzMin]="1" [nzMax]="100" [nzStep]="0.5"></nz-input-number>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>    
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="dishtypes">Choose Dish Type</nz-form-label>
+      <nz-select style="width: 200px;" [(ngModel)]="selectedDishType" [ngModelOptions]="{standalone: true}"
+                 nzPlaceHolder="Choose Dish Type">
+        <nz-option *ngFor="let dish of dishTypeList" [nzLabel]="dish.name_en" [nzValue]="dish.id"></nz-option>
+      </nz-select>
+    </nz-form-item>
+    <nz-form-item>    
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="categories">Choose Categories</nz-form-label>
+      <nz-select style="width: 350px;" [nzMaxTagCount]="3" nzMode="multiple" [(ngModel)]="selectedCategories" [ngModelOptions]="{standalone: true}"
+                 nzPlaceHolder="Choose or Add Categories">
+        <nz-option *ngFor="let cat of categoryList" [nzLabel]="cat.name_en" [nzValue]="cat.id"></nz-option>
+      </nz-select>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="ingredients">Choose or Add Ingredients</nz-form-label>
+      <nz-select style="width: 350px;" nzMode="multiple" [(ngModel)]="selectedIngredients" [ngModelOptions]="{standalone: true}"
+                 nzPlaceHolder="Choose or Add Ingredients">
+        <nz-option *ngFor="let ing of ingredientList" [nzLabel]="ing.name_en" [nzValue]="ing.id"></nz-option>
+      </nz-select>
+    </nz-form-item>
+     <nz-form-item>    
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="allergens">Choose Allergens</nz-form-label>
+      <nz-select style="width: 350px;" [nzMaxTagCount]="3" nzMode="multiple" [(ngModel)]="selectedAllergens" [ngModelOptions]="{standalone: true}"
+                 nzPlaceHolder="Choose or Add Allergens">
+        <nz-option *ngFor="let allergen of allergensList" [nzLabel]="allergen.name_en" [nzValue]="allergen.id"></nz-option>
+      </nz-select>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="is_vegan">Is this dish vegan?</nz-form-label>
+      <nz-form-control [nzSm]="6" [nzXs]="24" nzErrorTip="required">
+        <label nz-checkbox formControlName="is_vegan"></label>
+      </nz-form-control>
+    </nz-form-item>
+     <hr>
+    <div style="text-align:center;font-size:25px;">Preparation Instructions</div>
+    <hr>
+    <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="procedure_en">Prep Instructions (English)</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="Instructions must be at least 3 characters">
+        <textarea rows="5" nz-input formControlName="procedure_en"></textarea>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+       <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="procedure_sp">Prep Instructions (Spanish)</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="Instructions must be at least 3 characters">
+        <textarea rows="5" nz-input formControlName="procedure_sp"></textarea>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  <hr>
+    <div style="text-align:center;font-size:25px;">Upload Dish Image</div>
+    <hr>
+  <app-file-upload [previewUrl]="imgUrl" (down)="down($event)" (del)="del($event)"></app-file-upload>
+  <hr>
+  <div style="text-align:center;font-size:25px;">Upload Dish Preparation Video</div>
+  <hr>
+  <app-dishes-add-video [(videoURL)]="videoURL" (updateVideoURL)="videoURL=$event"></app-dishes-add-video>
+  <hr>
+</div>
+
+<div *nzModalFooter>
+  <button nz-button nzType="default" (click)="cancel()">Cancel</button>
+  <button nz-button nzType="primary" [disabled]="!dishesForm.valid" (click)="onOk()"
+          [nzLoading]="isLoading">Ok
+  </button>
+</div>
+

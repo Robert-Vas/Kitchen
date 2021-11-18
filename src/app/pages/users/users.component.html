@@ -1,0 +1,60 @@
+<div class="search-box">
+  <input type="text" nz-input placeholder="Search UserName" [(ngModel)]="searchValue"/>
+  <button nz-button nzType="primary" (click)="search()">
+    Search
+  </button>
+  <button nz-button (click)="reset()">Reset</button>
+
+  <mat-form-field appearance="fill" style="float: right;">
+    <mat-label>Select a role</mat-label>
+    <mat-select [(value)]="selected" (selectionChange)="filterByRole()">
+      <mat-option value={{userRoles.admin}}>{{userRoles.admin}}</mat-option>
+      <mat-option value={{userRoles.cook}}>{{userRoles.cook}}</mat-option>
+      <mat-option value={{userRoles.customer}}>{{userRoles.customer}}</mat-option>
+      <mat-option value={{userRoles.unapproved}}>{{userRoles.unapproved}}</mat-option>
+      <mat-option value={{userRoles.disabled}}>{{userRoles.disabled}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<nz-skeleton [nzActive]="true" *ngIf="!list" [nzParagraph]="{ rows: 10 }"></nz-skeleton>
+<nz-table *ngIf="list" #nzTable [nzData]="list" [nzShowSizeChanger]="false" nzSize="small" [nzBordered]="true">
+  <thead (nzSortChange)="sort($event)" nzSingleSort>
+  <tr>
+    <th>Avatar</th>
+    <th>Name</th>
+    <th>Role</th>
+    <th>Email</th>
+    <th nzShowSort nzSortKey="registerDate">SignUpDate</th>
+    <th nzShowSort nzSortKey="lastDate">LastDate</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of nzTable.data">
+    <td>
+      <nz-avatar nzIcon="user"></nz-avatar>
+    </td>
+    <td>{{ data.displayName }}</td>
+    <td>
+      <mat-form-field>
+        <mat-select [(value)]="data.role" (selectionChange)="updateRole(data)">
+          <mat-option value={{userRoles.admin}}>{{userRoles.admin}}</mat-option>
+          <mat-option value={{userRoles.cook}}>{{userRoles.cook}}</mat-option>
+          <mat-option value={{userRoles.customer}}>{{userRoles.customer}}</mat-option>
+          <mat-option value={{userRoles.unapproved}}>{{userRoles.unapproved}}</mat-option>
+          <mat-option value={{userRoles.disabled}}>{{userRoles.disabled}}</mat-option>
+        </mat-select>
+        </mat-form-field>
+    </td>
+    <td>{{ data.email }}</td>
+    <td>{{ data.registerDate }}</td>
+    <td>{{ data.lastDate }}</td>
+    <td>
+      <a (click)="onView(data)">
+        <i nz-icon nzType="eye" nzTheme="outline" [nzSpin]="true"></i>
+        View </a>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>

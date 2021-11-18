@@ -1,0 +1,25 @@
+<div>
+  <form nz-form [formGroup]="nForm">
+    <nz-form-item>
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="name">Name</nz-form-label>
+      <nz-form-control [nzSm]="19" [nzXs]="24" nzErrorTip="name length is at least 3">
+        <input nz-input formControlName="name"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="description">Description</nz-form-label>
+      <nz-form-control [nzSm]="19" [nzXs]="24" nzErrorTip="Description length is at least 10">
+        <textarea nz-input formControlName="description"
+                  [nzAutosize]="{ minRows: 6, maxRows: 8 }"></textarea>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>
+
+<div *nzModalFooter>
+  <button nz-button nzType="default" (click)="cancel()">Cancel</button>
+  <button nz-button nzType="primary" [disabled]="!nForm.valid" (click)="onOk()"
+          [nzLoading]="isLoading">Ok
+  </button>
+</div>

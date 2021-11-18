@@ -1,0 +1,49 @@
+<div class="nav-item" nz-dropdown [nzDropdownMenu]="iconMenu" nzTrigger="click"
+     nzPlacement="bottomRight" [(nzVisible)]="visible">
+  <nz-badge [nzCount]="7">
+    <i nz-icon nzType="bell"></i>
+  </nz-badge>
+
+</div>
+<nz-dropdown-menu #iconMenu="nzDropdownMenu">
+  <div nz-menu class="notice-box">
+    <nz-spin [nzSpinning]="loading">
+      <nz-tabset>
+        <nz-tab nzTitle="Notifications">
+          <nz-list *ngIf="noticeList" [nzDataSource]="noticeList" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
+            <ng-template #item let-item>
+              <nz-list-item>
+                <nz-list-item-meta
+                  [nzTitle]="nzTitle"
+                  nzAvatar="assets/img/notice.png"
+                  [nzDescription]="item.date">
+                  <ng-template #nzTitle>
+                    <p class="notice-title">{{ item.description }}</p>
+                  </ng-template>
+                </nz-list-item-meta>
+              </nz-list-item>
+            </ng-template>
+          </nz-list>
+          <div class="notice-clear">Clear</div>
+        </nz-tab>
+        <nz-tab nzTitle="New Orders">
+          <div>
+            <nz-list *ngIf="orderList" [nzDataSource]="orderList" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
+              <ng-template #item let-item>
+                <nz-list-item>
+                  <nz-list-item-meta
+                    nzTitle="{{item?.userId}}--{{item?.id}}"
+                    nzAvatar="assets/img/order.png"
+                    [nzDescription]="item?.status+' '+item?.createdOn"
+                  >
+                  </nz-list-item-meta>
+                </nz-list-item>
+              </ng-template>
+            </nz-list>
+            <div class="notice-clear" (click)="visible = false" routerLink="/pages/order">View</div>
+          </div>
+        </nz-tab>
+      </nz-tabset>
+    </nz-spin>
+  </div>
+</nz-dropdown-menu>

@@ -1,0 +1,22 @@
+<h3>{{dish?.name_en}} Preparation Video</h3>
+
+<div *ngIf="dish?.video; else uploadBlock">
+    <video controls="controls" preload="auto" width="320" height="240">
+        <source src="{{dish.video}}" type='video/mp4' />
+    </video>
+    <p>
+    <button nz-button (click)="deleteVideo()">
+        <i nz-icon nzType="delete" nzTheme="twotone"></i>
+    Delete</button>
+    </p>
+</div>
+<ng-template #uploadBlock>
+    <nz-upload (nzChange)="handleChange($event)" [nzFileList]="fileList" [nzCustomRequest]="customReq" [nzAccept]="'video/*'">
+        <button nz-button><i nz-icon nzType="upload"></i>Upload</button>
+    </nz-upload>
+</ng-template>
+
+<div *nzModalFooter>
+    <button nz-button nzType="primary" (click)="onClose()">Close
+    </button>
+</div>

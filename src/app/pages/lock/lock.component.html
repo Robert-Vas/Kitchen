@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <a href="https://memphis-eats.web.app" target="_blank">
+          <img class="logo" src="assets/img/logo.png" alt="Memphis Eats">
+          <span>Memphis Eats Admin</span>
+        </a>
+      </div>
+      <div class="desc">Memphis Eats App Administration</div>
+    </div>
+    <nz-card class="card">
+      <div class="avatar">
+        <nz-avatar nzSrc="assets/img/user1.png" nzSize="large"></nz-avatar>
+      </div>
+      <form nz-form [formGroup]="lockForm" style="margin-top: 30px">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Password length at 6">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input nzSize="large" formControlName="pwd"/>
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control style="text-align: right">
+            <button nz-button nzType="primary"
+                    [disabled]="!lockForm.valid" (click)="onUnLock()">
+              UnLock
+            </button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </nz-card>
+
+    <div class="footer">
+      <div class="link"> 
+      </div>
+      <div class="copyright"> Copyright
+        <i nz-icon nzType="copyright" nzTheme="outline"></i>
+        2012-{{year}}  All rights
+        reserved <a href="#" target="_blank">Memphis Eats</a>
+      </div>
+    </div>
+  </div>
+  <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+
+
+

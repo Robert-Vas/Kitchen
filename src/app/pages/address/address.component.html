@@ -1,0 +1,27 @@
+<div class="search-box">
+  <input type="text" nz-input placeholder="Search UserName" [(ngModel)]="userName"/>
+  <input type="text" nz-input placeholder="Search Address" [(ngModel)]="address"/>
+  <button nz-button nzType="primary" (click)="search()">
+    Search
+  </button>
+  <button nz-button (click)="reset()">Reset</button>
+</div>
+<nz-skeleton [nzActive]="true" *ngIf="!list" [nzParagraph]="{ rows: 6 }"></nz-skeleton>
+<nz-table *ngIf="list" #nzTable [nzData]="list" [nzShowSizeChanger]="false" nzSize="small" [nzBordered]="true">
+  <thead>
+  <tr>
+    <th>UserName</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Street</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of nzTable.data">
+    <td>{{ data.userName }}</td>
+    <td>{{ data.phone }}</td>
+    <td>{{data.address}}</td>
+    <td>{{data.street}}</td>
+  </tr>
+  </tbody>
+</nz-table>

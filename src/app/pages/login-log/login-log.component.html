@@ -1,0 +1,32 @@
+<div class="search-box">
+  <input type="text" nz-input placeholder="Search UserName" [(ngModel)]="searchValue"/>
+  <button nz-button nzType="primary" (click)="search()">
+    Search
+  </button>
+  <button nz-button (click)="reset()">Reset</button>
+</div>
+
+
+<nz-skeleton [nzActive]="true" *ngIf="!list" [nzParagraph]="{ rows: 10 }"></nz-skeleton>
+<nz-table *ngIf="list" #nzTable [nzData]="list" [nzShowSizeChanger]="false" nzSize="small" [nzBordered]="true">
+  <thead (nzSortChange)="sort($event)" nzSingleSort>
+  <tr>
+    <th>Avatar</th>
+    <th>UserName</th>
+    <th>Email</th>
+    <th>Device</th>
+    <th nzShowSort nzSortKey="date">Date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of nzTable.data">
+    <td>
+      <nz-avatar nzIcon="user"></nz-avatar>
+    </td>
+    <td>{{ data?.userName }}</td>
+    <td>{{ data?.email }}</td>
+    <td>{{ data?.device }}</td>
+    <td>{{ data?.date }}</td>
+  </tr>
+  </tbody>
+</nz-table>

@@ -1,0 +1,33 @@
+<div class="container">
+    <h1>Scan QR Code for Order Pickup</h1>
+    <zxing-scanner *ngIf="scannerEnabled" #scanner (scanSuccess)="scanSuccessHandler($event)">
+    </zxing-scanner>
+    <div class="button-wrapper">
+    <button nz-button class="btn-add-" [nzSize]="large" nzType="primary" (click)="enableScanner()" *ngIf="!scannerEnabled">SCAN</button>
+</div>
+    </div>  
+
+    <nz-modal [(nzVisible)]="confirmIsVisible" nzTitle="Order Information" (nzOnCancel)="handleConfirmCancel()" (nzOnOk)="handleConfirmOk()">
+        <div>
+            <strong>Total:</strong> {{order?.paymentSummary.subtotal + order?.paymentSummary.tax | currency}}
+            <br>
+            <strong>Time:</strong> {{order?.createdOn | date:'medium'}}
+            <br>
+            <strong>Status:</strong> {{order?.status}}
+            <hr>
+            <div *ngFor="let item of order?.orderedDishes">
+                {{item.count}} {{item.model.name_en}}
+            </div>
+        </div>
+    </nz-modal>
+
+    <nz-modal [nzFooter]="errorModalFooter" [(nzVisible)]="errorIsVisible" nzTitle="Error">
+        <div>
+            <h3>{{errorMessage}}</h3>
+            <hr>
+        </div>
+
+        <ng-template #errorModalFooter>
+            <button nz-button nzType="primary" (click)="handleErrorOk()">OK</button>
+          </ng-template>
+    </nz-modal>

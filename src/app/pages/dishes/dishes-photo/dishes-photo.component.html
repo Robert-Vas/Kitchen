@@ -1,0 +1,21 @@
+<nz-skeleton [nzActive]="true" *ngIf="!fileList"></nz-skeleton>
+<div *ngIf="fileList">
+  <nz-upload nzListType="picture-card" [(nzFileList)]="fileList"
+             [nzShowButton]="fileList.length < 6" [nzShowUploadList]="showUploadList"
+             [nzPreview]="handlePreview" [nzCustomRequest]="customReq" [nzRemove]="customRemove"
+             accept="image/png, image/gif, image/jpeg, image/bmp, image/x-icon">
+    <i nz-icon nzType="plus"></i>
+    <div class="ant-upload-text">Upload Dish Image</div>
+  </nz-upload>
+  <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent"
+            [nzFooter]="null" (nzOnCancel)="previewVisible = false">
+    <ng-template #modalContent>
+      <img [src]="previewImage" [ngStyle]="{ width: '100%' }"/>
+    </ng-template>
+  </nz-modal>
+</div>
+
+<div *nzModalFooter>
+  <button nz-button nzType="primary" (click)="onClose()">Close
+  </button>
+</div>

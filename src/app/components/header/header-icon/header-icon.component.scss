@@ -1,0 +1,59 @@
+.app-icons {
+  padding: 16px;
+
+  i {
+    padding: 15px;
+    font-size: 22px;
+    border-radius: 50%;
+  }
+
+  small {
+    display: block;
+    padding-top: 4px;
+    color: #9c9c9c;
+    font-size: 14px;
+  }
+}
+.ant-col-6{
+  padding: 16px 0;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color .3s;
+}
+
+.bg-error {
+  background-color: #f5222d !important;
+}
+
+.bg-geekblue {
+  background-color: #2f54eb !important;
+}
+
+.bg-success {
+  background-color: #52c41a !important;
+}
+
+.bg-magenta {
+  background-color: #eb2f96 !important;
+}
+
+.bg-purple {
+  background-color: #722ed1 !important;
+}
+
+.bg-warning {
+  background-color: #fadb14 !important;
+}
+
+.bg-cyan {
+  background-color: #13c2c2 !important;
+}
+
+.bg-grey {
+  background-color: #bfbfbf !important;
+}
+
+.text-white {
+  color: #fff !important;
+}

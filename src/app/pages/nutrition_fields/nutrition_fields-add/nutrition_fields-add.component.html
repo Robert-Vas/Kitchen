@@ -1,0 +1,41 @@
+<div>
+  <form nz-form [formGroup]="nutrition_fieldsForm">
+    <nz-form-item>
+      <nz-form-label [nzSm]="12" [nzXs]="24" nzRequired nzFor="name_en">Name</nz-form-label>
+      <nz-form-control [nzSm]="12" [nzXs]="24" nzErrorTip="Name must be at least 3 characters">
+        <input nz-input formControlName="name_en"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="12" [nzXs]="24" nzRequired nzFor="name_sp">Name (Spanish)</nz-form-label>
+      <nz-form-control [nzSm]="12" [nzXs]="24" nzErrorTip="Name must be at least 3 characters">
+        <input nz-input formControlName="name_sp"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="12" [nzXs]="24" nzRequired nzFor="measurement_type">Meas. Type (grams, pounds, etc)</nz-form-label>
+      <nz-form-control [nzSm]="12" [nzXs]="24" nzErrorTip="name length is at least 3">
+        <input nz-input formControlName="measurement_type"/>
+      </nz-form-control>
+    </nz-form-item>
+     <nz-form-item>
+      <nz-form-label [nzSm]="12" [nzXs]="24" nzRequired nzFor="measurement_display">Meas. Display (g, lb, etc)</nz-form-label>
+      <nz-form-control [nzSm]="12" [nzXs]="24" nzErrorTip="Measurement Display length should be at least 1">
+        <input nz-input formControlName="measurement_display"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="12" [nzXs]="24" nzRequired nzFor="sort">Sort</nz-form-label>
+      <nz-form-control [nzSm]="12" [nzXs]="24" nzErrorTip="required">
+        <nz-input-number formControlName="sort" [nzMin]="1" [nzMax]="100" [nzStep]="1"></nz-input-number>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>
+
+<div *nzModalFooter>
+  <button nz-button nzType="default" (click)="cancel()">Cancel</button>
+  <button nz-button nzType="primary" [disabled]="!nutrition_fieldsForm.valid" (click)="onOk()"
+          [nzLoading]="isLoading">Ok
+  </button>
+</div>

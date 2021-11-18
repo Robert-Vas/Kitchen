@@ -1,0 +1,15 @@
+<div class="upload-container">
+  <div class="upload-select">
+    <i nz-icon nzType="plus" nzTheme="outline" style="font-size: 40px;"></i>
+    <div class="upload-text">Upload</div>
+    <div class="upload-inner">
+      <input type="file" class="upload-input" (change)="uploadFile($event)"
+             accept="image/png, image/gif, image/jpeg, image/bmp, image/x-icon">
+    </div>
+  </div>
+  <nz-progress [nzPercent]="uploadPercent | async"></nz-progress>
+  <div class="upload-preview" *ngIf="previewUrl">
+    <i nz-icon nzType="close-square" nzTheme="twotone" nzTwotoneColor="#E22E07" class="close" (click)="onDel()"></i>
+    <img [src]="previewUrl"/>
+  </div>
+</div>

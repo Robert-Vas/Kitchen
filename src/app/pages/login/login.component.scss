@@ -1,0 +1,49 @@
+.container {
+  background-image: url('../../../assets/img/lg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  overflow: hidden;
+}
+
+.top {
+  text-align: center;
+  margin-top: 100px;
+
+  span {
+    color: white;
+    font-weight: 600;
+    font-size: 33px;
+    font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+  }
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.login-form-button {
+  width: 90px;
+  margin-right: 5px;
+}
+
+
+.form {
+  background: rgba(49, 70, 213, 0.35);
+  padding: 60px;
+  max-width: 500px;
+  margin: 10px auto;
+  border-radius: 9px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+  overflow: hidden;
+}
+
+
+
+
+
+
+
+
+

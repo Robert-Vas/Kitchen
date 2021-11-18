@@ -1,0 +1,70 @@
+<div class="search-box">
+  <input type="text" nz-input placeholder="Search OrderNo" [(ngModel)]="searchValue"/>
+  <button nz-button nzType="primary" (click)="search()">
+    Search
+  </button>
+  <button nz-button (click)="reset()">Reset</button>
+</div>
+
+<nz-skeleton [nzActive]="true" *ngIf="!list" [nzParagraph]="{ rows: 10 }"></nz-skeleton>
+<nz-table #nestedTable *ngIf="list" [nzData]="list" [nzPageSize]="9" nzSize="small">
+  <thead>
+  <tr>
+    <th nzShowExpand></th>
+    <th>Id</th>
+    <th>OrderDate</th>
+    <th>Total</th>
+    <th>DeliveryType</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-template ngFor let-data [ngForOf]="nestedTable.data">
+    <tr>
+      <td nzShowExpand [(nzExpand)]="data.expand"></td>
+      <td>{{ data.id }}</td>
+      <td>{{ data?.createdOn | date }}</td>
+      <td>{{ (data?.paymentSummary?.subtotal + data?.paymentSummary?.tax - data?.paymentSummary?.discount) | currency }}</td>
+      <td>{{ data?.deliveryType }}</td>
+      <td>{{ data.status }}</td>
+      <td>
+        <nz-badge [nzStatus]="'success'" [nzText]="data.status"></nz-badge>
+      </td>
+      <td>
+        <button nz-button nzType="primary" (click)="onView(data)">
+          <i nz-icon nzType="eye" nzTheme="outline" [nzSpin]="true"></i>
+        </button>
+        <button nz-button nzType="primary" (click)="onEdit(data)">
+          <i nz-icon nzType="edit" nzTheme="outline"></i>
+        </button>
+
+      </td>
+    </tr>
+    <tr [nzExpand]="data.expand">
+      <td></td>
+      <td colspan="10">
+        <nz-table #innerTable [nzData]="data.orderedDishes" nzSize="small" [nzShowPagination]="false">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Price($)</th>
+    <th>Num</th>
+    <th>Amount($)</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of innerTable.data">
+    <td>{{ data.model.name_en }}</td>
+    <td>{{ data.price }}</td>
+    <td>{{ data.count }}</td>
+    <td>{{ data.price * data.count | currency}}</td>
+  </tr>
+  </tbody>
+</nz-table>
+</td>
+</tr>
+</ng-template>
+</tbody>
+</nz-table>
+

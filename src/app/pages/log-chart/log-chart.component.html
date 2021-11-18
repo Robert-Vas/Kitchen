@@ -1,0 +1,14 @@
+<div nz-row>
+  <div nz-col style="height: 520px">
+    <nz-skeleton [nzActive]="true" *ngIf="!list" [nzParagraph]="{ rows: 8}"></nz-skeleton>
+    <ngx-charts-bar-vertical *ngIf="list"
+                             [results]="list"
+                             [scheme]="'natural'"
+                             [xAxis]="true"
+                             [gradient]="true"
+                             [xAxisLabel]="'Visits'"
+                             [showXAxisLabel]="true"
+                             [yAxis]="true">
+    </ngx-charts-bar-vertical>
+  </div>
+</div>

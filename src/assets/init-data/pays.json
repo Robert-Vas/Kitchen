@@ -1,0 +1,42 @@
+[
+  {
+    "id": "2ob0iKu4Def66wkcyg7f",
+    "date": "2019-10-14 11:09:36",
+    "img": "https://firebasestorage.googleapis.com/v0/b/ionic-firebase-fruit-app.appspot.com/o/uploads%2F1570602244109_pay2.png?alt=media&token=cfc4db89-b170-43dc-b149-0f3205b7ad0d",
+    "isEnable": false,
+    "maxAmount": 1000,
+    "minAmount": 10,
+    "name": "Google Pay",
+    "sort": 2
+  },
+  {
+    "id": "E1ow0aeAiiZNBYhrcagy",
+    "date": "2019-10-18 18:05:18",
+    "img": "https://firebasestorage.googleapis.com/v0/b/ionic-firebase-fruit-app.appspot.com/o/uploads%2F1571023047040_cash.png?alt=media&token=c93a8172-2813-44b5-a7ea-a94fc73cc7e4",
+    "isEnable": true,
+    "maxAmount": 10000,
+    "minAmount": 10,
+    "name": "Cash on delivery",
+    "sort": 1
+  },
+  {
+    "id": "HuRjA73bMpOrRw8eQYO8",
+    "date": "2019-10-14 11:10:36",
+    "img": "https://firebasestorage.googleapis.com/v0/b/ionic-firebase-fruit-app.appspot.com/o/uploads%2F1570602349531_pay1.png?alt=media&token=49bb69c2-a15c-4f05-9f54-a6ff2658eafa",
+    "isEnable": true,
+    "maxAmount": 2000,
+    "minAmount": 10,
+    "name": "Paypal",
+    "sort": 4
+  },
+  {
+    "id": "UJaYHz9R23yDohMP0Fbq",
+    "date": "2019-10-20 00:46:21",
+    "img": "https://firebasestorage.googleapis.com/v0/b/ionic-firebase-fruit-app.appspot.com/o/uploads%2F1570602292242_pay3.png?alt=media&token=3cca52c8-22e3-4bf4-b428-3eb1582831f5",
+    "isEnable": false,
+    "maxAmount": 10000,
+    "minAmount": 10,
+    "name": "Bank Card",
+    "sort": 3
+  }
+]

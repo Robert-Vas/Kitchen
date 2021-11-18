@@ -1,0 +1,18 @@
+<mat-card style="height: 100%; background-color: #f2f2f2;">
+    <div>
+      <mat-card-title>
+         
+       
+      </mat-card-title>
+      <p>Ordered On: {{order.createdOn | date:'short'}}</p>
+      <hr>
+      <div *ngFor="let item of order.orderedDishes">
+        {{item.count}} {{item.model.name_en}}
+      </div>
+      <div style="bottom: 0; position: absolute; text-align: center; width: 95%;">
+        <mat-card-actions>
+          <button nz-button nzType="primary" (click)="complete()">COMPLETE</button>
+        </mat-card-actions>
+      </div>
+    </div>
+  </mat-card>

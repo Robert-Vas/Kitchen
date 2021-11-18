@@ -1,0 +1,27 @@
+<button nz-button class="btn-add" nzType="primary" (click)="add()">
+  <i nz-icon nzType="plus" nzTheme="outline"></i>Add
+</button>
+
+<nz-skeleton [nzActive]="true" *ngIf="!list" [nzParagraph]="{ rows: 6 }"></nz-skeleton>
+<nz-table *ngIf="list" #nzTable [nzData]="list" [nzShowSizeChanger]="false" nzSize="small" [nzBordered]="true">
+  <thead>
+  <tr>
+    <th>Ingredient Name</th>
+    <th>Ingredient Name (Spanish)</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of nzTable.data">
+    <td>{{ data.name_en }}</td>
+    <td>{{ data.name_sp }}</td>
+    <td>
+      <a (click)="editRow(data)">
+        <i nz-icon nzType="edit" nzTheme="twotone"></i>
+        Edit</a> |
+      <a nz-popconfirm nzTitle="Are you sure to delete?" (nzOnConfirm)="deleteRow(data.id)">
+        <i nz-icon nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#eb2f96'"></i>Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>

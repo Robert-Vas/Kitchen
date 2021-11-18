@@ -1,0 +1,126 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$backend-app-primary: mat-palette($mat-indigo);
+$backend-app-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$backend-app-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$backend-app-theme: mat-light-theme($backend-app-primary, $backend-app-accent, $backend-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($backend-app-theme);
+
+/* You can add global styles to this file, and also import other style files */
+@import "styles-loading";
+@import "styles-variables";
+
+.search-box {
+  padding: 8px;
+
+  input {
+    width: auto;
+    margin-bottom: 8px;
+    margin-right: 16px;
+  }
+
+  button {
+    width: 90px;
+    margin-right: 8px;
+  }
+}
+
+
+.btn-add {
+  margin-bottom: 16px;
+  width: 90px;
+}
+
+td {
+  img {
+    max-height: 80px;
+  }
+}
+
+
+.ant-modal-title {
+  color: #ffffff !important;
+}
+
+
+
+.nav-item:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+
+
+.nav {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav > li {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav-item {
+  display: block;
+  min-width: 50px;
+  padding: 8px 2px;
+  line-height: 100%;
+  text-align: center;
+  border-radius: 2px;
+  outline: 0;
+  cursor: pointer;
+  transition: background-color .3s;
+}
+
+
+.nav-item > i,
+.nav-item > nz-badge  i,
+.nav-item-icon {
+  font-size: 20px !important;
+  transform: none !important;
+}
+
+.nav nz-badge, .nav-item {
+  color: #fff;
+}
+
+
+body::-webkit-scrollbar,
+mat-sidenav.sidenav::-webkit-scrollbar,
+.main-container::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+body::-webkit-scrollbar-thumb,
+mat-sidenav.sidenav::-webkit-scrollbar-thumb,
+.main-container::-webkit-scrollbar-thumb {
+  background-color: #6e6e6e;
+  outline: 1px solid #333;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

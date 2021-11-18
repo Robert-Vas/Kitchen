@@ -1,0 +1,20 @@
+<div>
+  <form nz-form [formGroup]="bForm">
+    <nz-form-item>
+      <nz-form-label [nzSm]="3" [nzXs]="24" nzRequired nzFor="name">Name</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="name length is at least 3">
+        <input nz-input formControlName="name"/>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  <app-file-upload [previewUrl]="imgUrl" (down)="down($event)"></app-file-upload>
+</div>
+
+<div *nzModalFooter>
+  <button nz-button nzType="default" (click)="cancel()">Cancel</button>
+  <button nz-button nzType="primary" [disabled]="!bForm.valid || this.imgUrl===null" (click)="onOk()"
+          [nzLoading]="isLoading">Ok
+  </button>
+</div>
+
+

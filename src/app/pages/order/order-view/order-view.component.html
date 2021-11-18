@@ -1,0 +1,45 @@
+<nz-descriptions nzBordered nzSize="small" [nzColumn]="{ xxl: 3, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }">
+  <nz-descriptions-item nzTitle="OrderNo">{{data?.id}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="OrderDate">{{data?.date | date}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Num">{{data?.num}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Amount">{{data?.amount}}($)</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="OWS">{{data?.overWeightSurcharge}}($)</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Freight">{{data?.freight}}($)</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Discount">{{data?.discount}}($)</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="PayDiscount">{{data?.payDiscount}}($)</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Pay">{{data?.pay}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="PayDate">{{data?.payDate}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Express">{{data?.delivery}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="ExpressPhone">{{data?.deliveryPhone}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="ExpressDate">{{data?.deliveryDate}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="UserName">{{data?.userName}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Status">
+    <nz-badge nzStatus="processing" [nzText]="data?.status"></nz-badge>
+  </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="FinishDate">{{data?.finishDate}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="address">{{data?.address}}
+  </nz-descriptions-item>
+</nz-descriptions>
+
+<nz-table #smallTable nzSize="small" [nzData]="data?.details" [nzShowPagination]="false">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price($)</th>
+      <th>Num</th>
+      <th>Amount($)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of smallTable.data">
+      <td>{{ data.model.name }}</td>
+      <td>{{ data.price }}</td>
+      <td>{{ data.count }}</td>
+      <td>{{ data.price * data.count }}</td>
+    </tr>
+  </tbody>
+</nz-table>
+
+<div *nzModalFooter>
+  <button nz-button nzType="primary" (click)="onClose()">Close</button>
+</div>

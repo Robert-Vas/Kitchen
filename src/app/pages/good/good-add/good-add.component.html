@@ -1,0 +1,60 @@
+<div>
+  <form nz-form [formGroup]="goodForm">
+    <nz-form-item>
+      <nz-form-label [nzSm]="3" [nzXs]="12" nzRequired nzFor="name">Name</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="15" nzErrorTip="name length is at least 3">
+        <input nz-input formControlName="name"/>
+      </nz-form-control>
+      <nz-form-label [nzSm]="2" [nzXs]="12" nzRequired nzFor="cate">Cate</nz-form-label>
+      <nz-select style="width: 120px;" [(ngModel)]="selectedCate" [ngModelOptions]="{standalone: true}"
+                 nzPlaceHolder="Choose">
+        <nz-option *ngFor="let cate of cateList" [nzLabel]="cate.name" [nzValue]="cate.id"></nz-option>
+      </nz-select>
+    </nz-form-item>
+
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="3" [nzXs]="3" nzRequired nzFor="sort">Sort</nz-form-label>
+      <nz-form-control [nzSm]="3" [nzXs]="3" nzErrorTip="required">
+        <nz-input-number formControlName="sort" [nzMin]="1" [nzMax]="10000" [nzStep]="1"></nz-input-number>
+      </nz-form-control>
+      <nz-form-label [nzSm]="2" [nzXs]="3" nzRequired nzFor="price">Price</nz-form-label>
+      <nz-form-control [nzSm]="3" [nzXs]="3" nzErrorTip="required">
+        <nz-input-number formControlName="price" [nzMin]="0.2" [nzMax]="1000" [nzStep]="0.1"></nz-input-number>
+      </nz-form-control>
+      <nz-form-label [nzSm]="3" [nzXs]="3" nzRequired nzFor="shelfLife">shelfLife</nz-form-label>
+      <nz-form-control [nzSm]="3" [nzXs]="3" nzErrorTip="required">
+        <nz-input-number formControlName="shelfLife" [nzMin]="1" [nzMax]="100" [nzStep]="1"></nz-input-number>
+      </nz-form-control>
+      <nz-form-label [nzSm]="3" [nzXs]="3" nzRequired nzFor="weight">weight</nz-form-label>
+      <nz-form-control [nzSm]="3" [nzXs]="3" nzErrorTip="required">
+        <nz-input-number formControlName="weight" [nzMin]="0" [nzMax]="1000" [nzStep]="0.2"></nz-input-number>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="3" [nzXs]="3" nzFor="isHot">Hot</nz-form-label>
+      <nz-form-control [nzSm]="2" [nzXs]="2" nzErrorTip="required">
+        <label nz-checkbox formControlName="isHot"></label>
+      </nz-form-control>
+      <nz-form-label [nzSm]="2" [nzXs]="2" nzFor="isNew">New</nz-form-label>
+      <nz-form-control [nzSm]="2" [nzXs]="2" nzErrorTip="required">
+        <label nz-checkbox formControlName="isNew"></label>
+      </nz-form-control>
+      <nz-form-label [nzSm]="4" [nzXs]="4" nzFor="storageConditions">Conditions</nz-form-label>
+      <nz-form-control [nzSm]="10" [nzXs]="24">
+        <input nz-input formControlName="storageConditions"/>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  <app-file-upload [previewUrl]="imgUrl" (down)="down($event)" (del)="del($event)"></app-file-upload>
+  <quill-editor [styles]="{height: '160px'}" [(ngModel)]="description"  (onEditorCreated)="editorCreated($event)" ></quill-editor>
+</div>
+
+<div *nzModalFooter>
+  <button nz-button nzType="default" (click)="cancel()">Cancel</button>
+  <button nz-button nzType="primary" [disabled]="!goodForm.valid" (click)="onOk()"
+          [nzLoading]="isLoading">Ok
+  </button>
+</div>
+

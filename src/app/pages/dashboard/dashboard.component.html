@@ -1,0 +1,176 @@
+<div>
+  <div nz-row>
+    <div nz-col class="gutter-row" nzSpan="4">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loading">
+          <nz-statistic [nzValue]="totalVisits" [nzTitle]="'Total Visits'" [nzPrefix]="prefixTplOne1">
+          </nz-statistic>
+          <ng-template #prefixTplOne1>
+            <i nz-icon nzType="eye" nzTheme="twotone" [nzSpin]="true" nzTwotoneColor="#52c41a"></i>
+          </ng-template>
+        </nz-card>
+      </div>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="4">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loading">
+          <nz-statistic [nzValue]="totalUsers" [nzTitle]="'Total Users'" [nzPrefix]="prefixTplOne2">
+          </nz-statistic>
+          <ng-template #prefixTplOne2>
+            <i nz-icon nzType="idcard" nzTheme="twotone"></i>
+          </ng-template>
+        </nz-card>
+      </div>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="4">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loading">
+          <nz-statistic [nzValue]="totalSales" [nzTitle]="'Total Sales'" [nzPrefix]="prefixTplOne3">
+          </nz-statistic>
+          <ng-template #prefixTplOne3>
+            <i nz-icon nzType="shopping" nzTheme="twotone"></i>
+          </ng-template>
+        </nz-card>
+      </div>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="4">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loading">
+          <nz-statistic [nzValue]="totalOrders" [nzTitle]="'Total Orders'" [nzPrefix]="prefixTplOne4">
+          </nz-statistic>
+          <ng-template #prefixTplOne4>
+            <i nz-icon nzType="heart" nzTheme="twotone"></i>
+          </ng-template>
+        </nz-card>
+      </div>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="4">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loading">
+          <nz-statistic [nzValue]="totalNotices" [nzTitle]="'Total Notices'" [nzPrefix]="prefixTplOne5">
+          </nz-statistic>
+          <ng-template #prefixTplOne5>
+            <i nz-icon nzType="notification" nzTheme="twotone"></i>
+          </ng-template>
+        </nz-card>
+      </div>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="4">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loading">
+          <nz-statistic [nzValue]="totalFavorites" [nzTitle]="'Total Favorites'" [nzPrefix]="prefixTplOne6">
+          </nz-statistic>
+          <ng-template #prefixTplOne6>
+            <i nz-icon nzType="smile" nzTheme="twotone"></i>
+          </ng-template>
+        </nz-card>
+      </div>
+    </div>
+
+  </div>
+  <div nz-row class="gutter-row">
+    <div nz-col nzSpan="16">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loadingOrder" nzSize="small">
+          <div style="height: 300px;margin-right: 5px">
+            <ngx-charts-bar-vertical
+              [results]="barList"
+              [scheme]="'neons'"
+              [xAxis]="showXAxis"
+              [gradient]="true"
+              [xAxisLabel]="'Orders Sale Amount'"
+              [showXAxisLabel]="true"
+              [yAxis]="showYAxis">
+            </ngx-charts-bar-vertical>
+          </div>
+        </nz-card>
+      </div>
+    </div>
+    <div nz-col nzSpan="8">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loadingCate" nzSize="small">
+          <div style="height: 300px">
+            <ngx-charts-bar-horizontal-2d
+              [results]="barHorizontalList"
+              [xAxis]="showXAxis"
+              [scheme]="'picnic'"
+              [xAxisLabel]="'Sales Num'"
+              [showXAxisLabel]="true"
+              [gradient]="true"
+              [showGridLines]="false"
+              [yAxis]="showYAxis">
+            </ngx-charts-bar-horizontal-2d>
+          </div>
+        </nz-card>
+      </div>
+    </div>
+  </div>
+  <div nz-row class="gutter-row">
+    <div nz-col nzSpan="8">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loadingUser" nzSize="small">
+          <div style="height: 300px;margin-right: 5px;">
+            <ngx-charts-area-chart
+              [scheme]="'ocean'"
+              [curve]="curve"
+              [results]="lineList"
+              [xAxis]="showXAxis"
+              [yAxis]="showYAxis"
+              [showXAxisLabel]="true"
+              [gradient]="true"
+              [xAxisLabel]="'SignUp Users'">
+            </ngx-charts-area-chart>
+          </div>
+        </nz-card>
+      </div>
+    </div>
+    <div nz-col nzSpan="8">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loadingDevice" nzSize="small">
+          <div style="height: 300px;display: grid;">
+            <ngx-charts-pie-chart
+              [results]="pieList"
+              [scheme]="'forest'"
+              [gradient]="true"
+              [labels]="true">
+            </ngx-charts-pie-chart>
+          </div>
+        </nz-card>
+      </div>
+    </div>
+    <div nz-col nzSpan="8">
+      <div class="gutter-box">
+        <nz-card nzSize="small" [nzLoading]="loadingCate">
+          <div style="height: 300px;display: grid;">
+            <ngx-charts-pie-grid
+              [results]="pipList"
+              [scheme]="'vivid'">
+            </ngx-charts-pie-grid>
+          </div>
+        </nz-card>
+      </div>
+    </div>
+  </div>
+
+  <div nz-row>
+    <div nz-col nzSpan="24">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loadingVisit" nzSize="small">
+          <div style="height: 300px;margin-right: 5px;">
+            <ngx-charts-line-chart
+              [scheme]="'ocean'"
+              [curve]="curve"
+              [results]="visitList"
+              [xAxis]="showXAxis"
+              [yAxis]="showYAxis"
+              [showXAxisLabel]="true"
+              [gradient]="true"
+              [xAxisLabel]="'Visits'">
+            </ngx-charts-line-chart>
+          </div>
+        </nz-card>
+      </div>
+    </div>
+  </div>
+</div>
+

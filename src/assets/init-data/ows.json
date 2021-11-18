@@ -1,0 +1,65 @@
+[
+  {
+    "id": "3v9c2xOtuJGbPwRl0C9K",
+    "cost": 4,
+    "date": "2019-10-10 16:01:28",
+    "isEnable": true,
+    "maxWeight": 50,
+    "minWeight": 41,
+    "sort": 5
+  },
+  {
+    "id": "C1ThgeBllzOI6wGe3AEq",
+    "cost": 2,
+    "date": "2019-10-10 15:59:20",
+    "isEnable": true,
+    "maxWeight": 30,
+    "minWeight": 21,
+    "sort": 3
+  },
+  {
+    "id": "Pw2pYut5uOIA4oamS14v",
+    "cost": 0,
+    "date": "2019-10-10 15:58:43",
+    "isEnable": true,
+    "maxWeight": 10,
+    "minWeight": 0,
+    "sort": 1
+  },
+  {
+    "id": "hHmwnRKKulTkGaWcDLyy",
+    "cost": 1,
+    "date": "2019-10-10 15:59:05",
+    "isEnable": true,
+    "maxWeight": 20,
+    "minWeight": 11,
+    "sort": 2
+  },
+  {
+    "id": "htRNvybohttHDhlX3srn",
+    "cost": 3,
+    "date": "2019-10-10 15:59:49",
+    "isEnable": true,
+    "maxWeight": 40,
+    "minWeight": 31,
+    "sort": 4
+  },
+  {
+    "id": "iA3SuAduQHFAWiQxZsW0",
+    "cost": 6,
+    "date": "2019-10-10 16:02:36",
+    "isEnable": true,
+    "maxWeight": 10000,
+    "minWeight": 61,
+    "sort": 7
+  },
+  {
+    "id": "zm1UI1kkTckCK3x9NbgL",
+    "cost": 5,
+    "date": "2019-10-10 16:01:46",
+    "isEnable": true,
+    "maxWeight": 60,
+    "minWeight": 51,
+    "sort": 6
+  }
+]

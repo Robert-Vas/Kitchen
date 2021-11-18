@@ -1,0 +1,34 @@
+<button nz-button class="btn-add" nzType="primary" (click)="add()">
+  <i nz-icon nzType="plus" nzTheme="outline"></i>Add
+</button>
+
+<nz-skeleton [nzActive]="true" *ngIf="!list" [nzParagraph]="{ rows: 8}"></nz-skeleton>
+<nz-table *ngIf="list" #nzTable [nzData]="list" [nzShowSizeChanger]="false" [nzBordered]="true" nzSize="small">
+  <thead>
+  <tr>
+    <th>Sort</th>
+    <th>ShortName</th>
+    <th>Name</th>
+    <th>Cost($)</th>
+    <th>IsEnable</th>
+    <th nzWidth="200px">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of nzTable.data">
+    <td>{{ data.sort }}</td>
+    <td>{{data.shortName}}</td>
+    <td>{{data.name}}</td>
+    <td>{{data.cost}}</td>
+    <td><label nz-checkbox [(nzChecked)]="data.isEnable"></label></td>
+    <td>
+      <a (click)="editRow(data)">
+        <i nz-icon nzType="edit" nzTheme="twotone"></i>
+        Edit</a> |
+      <a nz-popconfirm nzTitle="Are you sure to delete?" (nzOnConfirm)="deleteRow(data.id)">
+        <i nz-icon nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#eb2f96'"></i>Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
+<app-loading *ngIf="isLoading"></app-loading>

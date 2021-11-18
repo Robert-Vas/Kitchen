@@ -1,0 +1,16 @@
+<nz-skeleton [nzActive]="true" *ngIf="!list" [nzParagraph]="{ rows: 3 }"></nz-skeleton>
+<nz-list [nzDataSource]="list" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
+  <ng-template #item let-item>
+    <nz-comment [nzAuthor]="item.userName" [nzDatetime]="item.date">
+      <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="item?.avatar"></nz-avatar>
+      <nz-comment-content>
+        <p>{{ item.description }}</p>
+      </nz-comment-content>
+    </nz-comment>
+  </ng-template>
+</nz-list>
+<div *nzModalFooter>
+  <button nz-button nzType="primary" (click)="onClose()">Close
+  </button>
+</div>
+

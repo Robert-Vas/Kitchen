@@ -1,0 +1,98 @@
+[
+  {
+    "id": "0pS5eEsglkYXRKmukJvX",
+    "amount": 199,
+    "beginDate": "2019-10-09 13:14:26",
+    "date": "2019-10-14 11:09:02",
+    "desc": "10%off once purchase up to 199",
+    "discountAmount": -10,
+    "enable": false,
+    "endDate": "2019-10-24 00:00:00",
+    "name": "10%off ",
+    "sort": 1
+  },
+  {
+    "id": "5kCv1OGX1wpb9OynYapP",
+    "amount": 499,
+    "beginDate": "2019-10-09 13:16:31",
+    "date": "2019-10-19 16:32:03",
+    "desc": "40%off once purchase up to 499",
+    "discountAmount": -20,
+    "enable": true,
+    "endDate": "2173-10-13 00:00:00",
+    "name": "40%off ",
+    "sort": 4
+  },
+  {
+    "id": "5mRyuHOfxjlDbdTJiInS",
+    "amount": 1999,
+    "beginDate": "2019-10-09 13:18:26",
+    "date": "2019-10-19 16:32:59",
+    "desc": "80%off once purchase up to 1999",
+    "discountAmount": -100,
+    "enable": false,
+    "endDate": "2093-10-28 00:00:00",
+    "name": "80%off",
+    "sort": 8
+  },
+  {
+    "id": "B39SyZtZ37N4vnOXD0hu",
+    "amount": 699,
+    "beginDate": "2019-10-09 13:17:21",
+    "date": "2019-10-19 16:32:27",
+    "desc": "60%off once purchase up to 699",
+    "discountAmount": -60,
+    "enable": true,
+    "endDate": "2093-10-22 00:00:00",
+    "name": "60%off ",
+    "sort": 6
+  },
+  {
+    "id": "NZ7WOWZQw8Q0vFWUFVx2",
+    "amount": 399,
+    "beginDate": "2019-10-09 13:15:45",
+    "date": "2019-10-19 16:31:24",
+    "desc": "30%off once purchase up to 399",
+    "discountAmount": -50,
+    "enable": true,
+    "endDate": "2043-12-09 00:00:00",
+    "name": "30%off",
+    "sort": 3
+  },
+  {
+    "id": "gMvayL4AyhXQkefKudUn",
+    "amount": 299,
+    "beginDate": "2019-10-09 13:15:26",
+    "date": "2019-10-19 16:31:46",
+    "desc": "20%off once purchase up to 299",
+    "discountAmount": -30,
+    "enable": true,
+    "endDate": "2040-10-24 00:00:00",
+    "name": "20%off",
+    "sort": 2
+  },
+  {
+    "id": "jurmeFlgIFCMjWFytD2O",
+    "amount": 799,
+    "beginDate": "2019-10-09 13:18:03",
+    "date": "2019-10-19 16:32:41",
+    "desc": "70%off once purchase up to 799",
+    "discountAmount": -70,
+    "enable": true,
+    "endDate": "2096-10-24 00:00:00",
+    "name": "70%off  ",
+    "sort": 7
+  },
+  {
+    "id": "nIT7rILtlSPEdm5DrcP8",
+    "amount": 599,
+    "beginDate": "2019-10-09 13:16:50",
+    "date": "2019-10-19 16:32:15",
+    "desc": "50%off once purchase up to 599",
+    "discountAmount": -80,
+    "enable": true,
+    "endDate": "2063-10-17 00:00:00",
+    "name": "50%off  ",
+    "sort": 5
+  }
+]

@@ -1,0 +1,41 @@
+<div>
+  <form nz-form [formGroup]="mealsForm">
+    <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="description_en" >Description</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="Description length is at least 3">
+        <input nz-input formControlName="description_en"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="description_sp">Description (Spanish)</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="Description length is at least 3">
+        <input nz-input formControlName="description_sp"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>    
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="locations">Choose Locations</nz-form-label>
+      <nz-select style="width: 250px;" [nzMaxTagCount]="3" nzMode="multiple" [(ngModel)]="selectedLocations" [ngModelOptions]="{standalone: true}"
+                 nzPlaceHolder="Choose Locations">
+        <nz-option *ngFor="let loc of locationsList" [nzLabel]="loc.name" [nzValue]="loc.id"></nz-option>
+      </nz-select>
+    </nz-form-item>
+     <nz-form-item>    
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="dishes">Choose Dishes</nz-form-label>
+      <nz-select style="width: 250px;" [nzMaxTagCount]="3" nzMode="multiple" [(ngModel)]="selectedDishes" [ngModelOptions]="{standalone: true}"
+                 nzPlaceHolder="Choose Dishes">
+        <nz-option *ngFor="let dish of dishesList" [nzLabel]="dish.name_en" [nzValue]="dish.id"></nz-option>
+      </nz-select>
+    </nz-form-item>
+    <hr>
+    <div style="text-align:center;font-size:22px;">Select All Dates of Availibility</div>
+    <app-multi-date-picker [datesSelected]="datesSelected" (datesSelectedChange)="change($event)"></app-multi-date-picker>
+  </form>
+</div>
+
+<div *nzModalFooter>
+  <button nz-button nzType="default" (click)="cancel()">Cancel</button>
+  <button nz-button nzType="primary" [disabled]="!mealsForm.valid" (click)="onOk()"
+          [nzLoading]="isLoading">Ok
+  </button>
+</div>

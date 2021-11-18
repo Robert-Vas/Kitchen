@@ -1,0 +1,72 @@
+<nz-spin [nzSpinning]="isLoading">
+  <nz-descriptions nzBordered nzSize="small" [nzColumn]="{ xxl: 3, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }">
+    <nz-descriptions-item nzTitle="OrderNo">{{order?.orderNo}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="OrderDate">{{order?.orderDate}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Num">{{order?.num}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Amount">{{order?.amount}}($)</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="OWS">{{order?.overWeightSurcharge}}($)</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Freight">{{order?.freight}}($)</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Discount">{{order?.discount}}($)</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="PayDiscount">{{order?.payDiscount}}($)</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Pay">{{order?.pay}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="PayDate">{{order?.payDate}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Express">{{order?.delivery}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="UserName">{{order?.userName}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="address">{{order?.address}}
+    </nz-descriptions-item>
+  </nz-descriptions>
+
+  <!-- form nz-form [formGroup]="orderForm">
+    <nz-form-item>
+      <nz-form-label [nzSm]="4" [nzXs]="3" nzFor="deliveryDate">ExpressDate</nz-form-label>
+      <nz-form-control [nzSm]="8" [nzXs]="24">
+        <nz-date-picker nzShowTime
+                        nzFormat="yyyy-MM-dd HH:mm:ss"
+                        nzPlaceHolder="Select Time" formControlName="deliveryDate"></nz-date-picker>
+      </nz-form-control>
+      <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="deliveryPhone">ExpressPhone</nz-form-label>
+      <nz-form-control [nzSm]="8" [nzXs]="24">
+        <input nz-input formControlName="deliveryPhone"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="finishDate">FinishDate</nz-form-label>
+      <nz-form-control [nzSm]="8" [nzXs]="24">
+        <nz-date-picker nzShowTime
+                        nzFormat="yyyy-MM-dd HH:mm:ss"
+                        nzPlaceHolder="Select Time" formControlName="finishDate"></nz-date-picker>
+      </nz-form-control>
+      <nz-form-label [nzSm]="4" [nzXs]="12" nzRequired nzFor="status">Status</nz-form-label>
+      <nz-select style="width: 150px;" [(ngModel)]="selectStatus" [ngModelOptions]="{standalone: true}"
+                 nzPlaceHolder="Choose">
+        <nz-option *ngFor="let state of statusList" [nzLabel]="state" [nzValue]="state"></nz-option>
+      </nz-select>
+    </nz-form-item>
+  </form -->
+
+  <nz-table #smallTable nzSize="small" [nzData]="order?.details" [nzShowPagination]="false">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price($)</th>
+        <th>Num</th>
+        <th>Amount($)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of smallTable.data">
+        <td>{{ data.model.name }}</td>
+        <td>{{ data.price }}</td>
+        <td>{{ data.count }}</td>
+        <td>{{ data.price * data.count }}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+
+  <div *nzModalFooter>
+    <button nz-button nzType="default" (click)="cancel()">Cancel</button>
+    <button nz-button nzType="primary" [disabled]="!orderForm.valid" (click)="onOk()">Ok
+    </button>
+  </div>
+</nz-spin>

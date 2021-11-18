@@ -1,0 +1,23 @@
+<div>
+  <form nz-form [formGroup]="allergensForm">
+    <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="name_en">Allergen</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="Name length is at least 3">
+        <input nz-input formControlName="name_en"/>
+      </nz-form-control>
+    </nz-form-item>
+     <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="name_sp">Allergen (Spanish)</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="Name length is at least 3">
+        <input nz-input formControlName="name_sp"/>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>
+
+<div *nzModalFooter>
+  <button nz-button nzType="default" (click)="cancel()">Cancel</button>
+  <button nz-button nzType="primary" [disabled]="!allergensForm.valid" (click)="onOk()"
+          [nzLoading]="isLoading">Ok
+  </button>
+</div>

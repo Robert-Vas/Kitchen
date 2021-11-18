@@ -1,0 +1,129 @@
+<div *ngIf="!showOrders" style="padding: 20px;">
+  <button nz-button (click)="report()">Show Meals</button>
+</div>
+<div *ngIf="showOrders" style="padding: 20px;">
+  <button nz-button (click)="report()">Show Orders</button>
+</div>
+
+<div *ngIf="showOrders" style="padding: 20px;">
+  <mat-card style="width: 50%; margin-bottom: 20px; margin: auto;">
+    Total Dishes: {{numDishes}}
+    <ul *ngFor="let dish of todaysDishes | keyvalue">
+      <li> {{dish.key}}: {{dish.value}} </li>
+    </ul>
+  </mat-card>
+</div>
+
+<mat-grid-list cols="3" class="myGridList" *ngIf="allList" style="margin-bottom: 300px;">
+  <div *ngFor="let order of todayList">
+    <mat-grid-tile style="width: fit-content; height: fit-content; margin-bottom: 20px;">
+      <app-order-card (completeEvent)="complete()" [order]="order" style="width: 90%; height: inherit; background-color: #f2f2f2; margin-bottom: 20px;"></app-order-card>
+    </mat-grid-tile>
+  </div>
+</mat-grid-list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <nz-skeleton [nzActive]="true" *ngIf="!list" [nzParagraph]="{ rows: 10 }"></nz-skeleton>
+<nz-table #nestedTable *ngIf="list" [nzData]="list" [nzPageSize]="9" nzSize="small">
+  <thead>
+  <tr>
+    <th nzShowExpand></th>
+    <th>Id</th>
+    <th>OrderDate</th>
+    <th>Total</th>
+    <th>DeliveryType</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-template ngFor let-data [ngForOf]="nestedTable.data">
+    <tr>
+      <td nzShowExpand [(nzExpand)]="data.expand"></td>
+      <td>{{ data.id }}</td>
+      <td>{{ data?.createdOn | date }}</td>
+      <td>{{ (data?.paymentSummary?.subtotal + data?.paymentSummary?.tax - data?.paymentSummary?.discount) | currency }}</td>
+      <td>{{ data?.deliveryType }}</td>
+      <td>{{ data.status }}</td>
+      <td>
+        <nz-badge [nzStatus]="'success'" [nzText]="data.status"></nz-badge>
+      </td>
+      <td>
+        <button nz-button nzType="primary" (click)="onView(data)" style="margin-right: 10px;">
+          <i nz-icon nzType="eye" nzTheme="outline"></i>
+        </button>
+        <button nz-button nzType="primary" (click)="onEdit(data)">
+          <i nz-icon nzType="edit" nzTheme="outline"></i>
+        </button>
+
+      </td>
+    </tr>
+    <tr [nzExpand]="data.expand">
+      <td></td>
+      <td colspan="10">
+        <nz-table #innerTable [nzData]="data.orderedDishes" nzSize="small" [nzShowPagination]="false">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Price($)</th>
+    <th>Num</th>
+    <th>Amount($)</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of innerTable.data">
+    <td>{{ data.model.name }}</td>
+    <td>{{ data.price }}</td>
+    <td>{{ data.count }}</td>
+    <td>{{ data.price * data.count }}</td>
+  </tr>
+  </tbody>
+</nz-table>
+</td>
+</tr>
+</ng-template>
+</tbody>
+</nz-table> -->
+
+
+
+
+<!-- Trying Card Style Display -->
+
+
+<!-- <div style="background: #ECECEC;padding:30px;">
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="8">
+      <div ngFor="let order of allList">
+        <nz-card nzTitle="Card title">
+          <p>Card content</p>
+          <p>{{allList.length}}</p>
+        </nz-card>
+      </div>
+    </div>
+  </div>
+</div> -->

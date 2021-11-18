@@ -1,0 +1,39 @@
+<nz-spin [nzSpinning]="isLoading">
+  <div>
+    <form nz-form [formGroup]="dForm">
+      <nz-form-item>
+        <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="name">Name</nz-form-label>
+        <nz-form-control [nzSm]="19" [nzXs]="24" nzErrorTip="name length is at least 3">
+          <input nz-input formControlName="name"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="shortName">ShortName</nz-form-label>
+        <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="shortName length is at least 2">
+          <input nz-input formControlName="shortName"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="sort">Sort</nz-form-label>
+        <nz-form-control [nzSm]="4" [nzXs]="24" nzErrorTip="Required">
+          <nz-input-number formControlName="sort" [nzMin]="1" [nzStep]="1"></nz-input-number>
+        </nz-form-control>
+        <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="cost">Cost</nz-form-label>
+        <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Required">
+          <nz-input-number formControlName="cost" [nzMin]="0" [nzStep]="1"></nz-input-number>
+        </nz-form-control>
+        <nz-form-label [nzSm]="3" [nzXs]="24" nzRequired nzFor="isEnable">Enable</nz-form-label>
+        <nz-form-control [nzSm]="2" [nzXs]="6">
+          <label nz-checkbox formControlName="isEnable"></label>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+
+  <div *nzModalFooter>
+    <button nz-button nzType="default" (click)="cancel()">Cancel</button>
+    <button nz-button nzType="primary" [disabled]="!dForm.valid" (click)="onOk()">Ok</button>
+  </div>
+</nz-spin>

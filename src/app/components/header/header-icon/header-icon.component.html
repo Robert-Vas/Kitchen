@@ -1,0 +1,44 @@
+<div class="nav-item" nz-dropdown [nzDropdownMenu]="iconMenu" nzTrigger="click" nzPlacement="bottomRight"
+     (nzVisibleChange)="change()">
+  <i nz-icon nzType="appstore"></i>
+</div>
+<nz-dropdown-menu #iconMenu="nzDropdownMenu">
+  <div nz-menu>
+    <nz-spin [nzSpinning]="loading" [nzTip]="'loading...'">
+      <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="app-icons">
+        <div nz-col [nzSpan]="6">
+          <i nz-icon nzType="area-chart" class="bg-error text-white"></i>
+          <small>area-chart</small>
+        </div>
+        <div nz-col [nzSpan]="6">
+          <i nz-icon nzType="pie-chart" class="bg-geekblue text-white"></i>
+          <small>pie-chart</small>
+        </div>
+        <div nz-col [nzSpan]="6">
+          <i nz-icon nzType="bar-chart" class="bg-success text-white"></i>
+          <small>bar-chart</small>
+        </div>
+        <div nz-col [nzSpan]="6">
+          <i nz-icon nzType="line-chart" class="bg-magenta text-white"></i>
+          <small>line-chart</small>
+        </div>
+        <div nz-col [nzSpan]="6">
+          <i nz-icon nzType="radar-chart" class="bg-purple text-white"></i>
+          <small>radar-chart</small>
+        </div>
+        <div nz-col [nzSpan]="6">
+          <i nz-icon nzType="rise" class="bg-warning text-white"></i>
+          <small>rise</small>
+        </div>
+        <div nz-col [nzSpan]="6">
+          <i nz-icon nzType="fund" class="bg-cyan text-white"></i>
+          <small>fund</small>
+        </div>
+        <div nz-col [nzSpan]="6">
+          <i nz-icon nzType="heat-map" class="bg-grey text-white"></i>
+          <small>heat-map</small>
+        </div>
+      </div>
+    </nz-spin>
+  </div>
+</nz-dropdown-menu>

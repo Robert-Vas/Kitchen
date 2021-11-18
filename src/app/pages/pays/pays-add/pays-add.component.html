@@ -1,0 +1,46 @@
+<div>
+  <form nz-form [formGroup]="payForm">
+    <nz-form-item>
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="name">Name</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="name length is at least 3">
+        <input nz-input formControlName="name"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="sort">Sort</nz-form-label>
+      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="required">
+        <nz-input-number formControlName="sort" [nzMin]="1" [nzMax]="100" [nzStep]="1"></nz-input-number>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="minAmount">MinAmount</nz-form-label>
+      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="required">
+        <nz-input-number formControlName="minAmount" [nzMin]="10" [nzStep]="10"></nz-input-number>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="maxAmount">MaxAmount</nz-form-label>
+      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="required">
+        <nz-input-number formControlName="maxAmount" [nzMin]="100" [nzStep]="100"></nz-input-number>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="isEnable">IsEnable</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24">
+        <label nz-checkbox formControlName="isEnable">Enable</label>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  <app-file-upload [previewUrl]="imgUrl" (down)="down($event)"></app-file-upload>
+</div>
+
+<div *nzModalFooter>
+  <button nz-button nzType="default" (click)="cancel()">Cancel</button>
+  <button nz-button nzType="primary" [disabled]="!payForm.valid" (click)="onOk()"
+          [nzLoading]="isLoading">Ok
+  </button>
+</div>

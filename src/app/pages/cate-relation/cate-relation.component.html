@@ -1,0 +1,15 @@
+<nz-skeleton [nzActive]="true" *ngIf="!cateList" [nzParagraph]="{ rows: 10 }"></nz-skeleton>
+<nz-tabset style="height:100%;" nzTabPosition="left">
+  <nz-tab *ngFor="let cate of cateList" [nzTitle]="cate.name" (nzSelect)="onSelect(cate.id)">
+    <nz-checkbox-wrapper style="width: 100%;">
+      <div nz-row>
+        <div nz-col nzSpan="6" *ngFor="let sub of subCateList">
+          <label nz-checkbox [nzValue]="sub.id" [(ngModel)]="sub.checked">{{sub.name}}</label>
+          <img [src]="sub.img">
+        </div>
+      </div>
+    </nz-checkbox-wrapper>
+
+    <button nz-button nzValue="large" nzType="primary" (click)="onSave()" [nzLoading]="isLoading">Save</button>
+  </nz-tab>
+</nz-tabset>

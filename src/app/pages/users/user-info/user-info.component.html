@@ -1,0 +1,13 @@
+<nz-descriptions nzBordered nzSize="small" [nzColumn]="{ xxl: 2, xl: 2, lg: 2, md: 2, sm: 2, xs: 1 }">
+  <nz-descriptions-item nzTitle="Avatar">
+    <nz-avatar nzIcon="user"></nz-avatar>
+  </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="UserName">{{data?.displayName}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Email">{{data?.email}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Balance">{{data?.balance}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="SignUpDate">{{data?.registerDate}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="LastDate">{{data?.lastDate}}</nz-descriptions-item>
+</nz-descriptions>
+<div *nzModalFooter>
+  <button nz-button nzType="primary" (click)="onClose()">Close</button>
+</div>

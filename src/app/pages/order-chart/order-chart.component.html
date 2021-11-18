@@ -1,0 +1,16 @@
+<div nz-row>
+  <div nz-col style="height: 520px">
+    <nz-skeleton [nzActive]="true" *ngIf="!list" [nzParagraph]="{ rows: 8}"></nz-skeleton>
+    <ngx-charts-line-chart *ngIf="list"
+                           [results]="list"
+                           [scheme]="'picnic'"
+                           [xAxis]="true"
+                           [gradient]="true"
+                           [xAxisLabel]="'Orders Sales And Nums'"
+                           [showXAxisLabel]="true"
+                           [legend]="true"
+                           [yAxis]="true">
+
+    </ngx-charts-line-chart>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="nav-item d-flex align-items-center px-sm" nz-dropdown nzPlacement="bottomRight"
+     [nzDropdownMenu]="languageMenu">
+  <nz-avatar class="langImg" [nzSrc]="'assets/img/lang/'+selectedLanguage.id+'.png'"></nz-avatar>
+  {{selectedLanguage.title}}
+</div>
+<nz-dropdown-menu #languageMenu="nzDropdownMenu">
+  <div nz-menu class="user-menu">
+    <div nz-menu-item *ngFor="let lang of languages" (click)="setLanguage(lang)">
+      <nz-avatar class="langImg" [nzSrc]="'assets/img/lang/'+lang.id+'.png'"></nz-avatar>
+      {{lang.title}}
+    </div>
+  </div>
+</nz-dropdown-menu>

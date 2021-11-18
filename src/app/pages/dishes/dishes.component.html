@@ -1,0 +1,57 @@
+<div class="search-box">
+  <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue"/>
+  <button nz-button nzType="primary" (click)="search()">
+    Search
+  </button>
+  <button nz-button (click)="reset()">Reset</button>
+</div>
+
+<button nz-button class="btn-add" nzType="primary" (click)="add()">
+  <i nz-icon nzType="plus" nzTheme="outline"></i>Add
+</button>
+
+<nz-skeleton [nzActive]="true" *ngIf="!list" [nzParagraph]="{ rows: 10 }"></nz-skeleton>
+<nz-table *ngIf="list" #nzTable [nzData]="list" [nzShowSizeChanger]="false" nzSize="small"
+          [nzBordered]="true">
+  <thead (nzSortChange)="sort($event)" nzSingleSort>
+  <tr>
+    <th nzShowSort nzSortKey="name_en">Dish Name</th>
+    <th nzShowSort nzSortKey="price">Dish Price</th>
+    <th nzShowSort nzSortKey="prep_minutes">Prep Time</th>
+    <th>Is Vegan</th>
+    <th>Image</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of nzTable.data">
+    <td>{{ data.name_en }}</td>
+    <td>${{ data.price }}</td>
+    <td>{{ data.prep_minutes }} min</td>
+    <td>{{ data.is_vegan }}</td> 
+    <td (click)="onView(data?.img)">
+      <img *ngIf="data?.img; else no" [src]=" data.img">
+      <ng-template #no>
+        <img src="assets/img/default.jpg">
+      </ng-template>
+    </td>
+    <td>
+      <a (click)="reviewsRow(data.id)">
+        <i nz-icon nzType="edit" nzTheme="twotone"></i>
+        Reviews</a> |
+      <a (click)="editRow(data)">
+        <i nz-icon nzType="edit" nzTheme="twotone"></i>
+        Edit</a> |
+      <a (click)="onPhoto(data.id)">
+        <i nz-icon nzType="edit" nzTheme="twotone"></i>
+        Photos</a> |
+      <a (click)="onVideo(data.id)">
+        <i nz-icon nzType="edit" nzTheme="twotone"></i>
+        Videos</a> |
+      <a nz-popconfirm nzTitle="Are you sure to delete?" (nzOnConfirm)="deleteRow(data.id)">
+        <i nz-icon nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#eb2f96'"></i>Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
+<app-loading *ngIf="isLoading"></app-loading>

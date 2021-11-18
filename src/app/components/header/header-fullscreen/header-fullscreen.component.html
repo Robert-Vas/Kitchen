@@ -1,0 +1,7 @@
+<div class="nav-item" nzTrigger="click" (click)="toggleScreen()">
+  <i nz-icon nzType="fullscreen" nzTheme="outline" *ngIf="!isFullscreen;else noFull"></i>
+  <ng-template #noFull>
+    <i nz-icon nzType="fullscreen-exit" nzTheme="outline"></i>
+  </ng-template>
+</div>
+

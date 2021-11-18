@@ -1,0 +1,14 @@
+[
+  {
+    "id": "Edid08MtMJKODdxj0zDM",
+    "date": "2019-10-19 15:11:20",
+    "img": "https://firebasestorage.googleapis.com/v0/b/ionic-firebase-fruit-app.appspot.com/o/uploads%2F1571469074479_banner.jpg?alt=media&token=ec4f164c-abbb-4a65-8b02-0f8cd4efc205",
+    "name": "banner1"
+  },
+  {
+    "id": "oazOP4uD10xtfX8XGCB1",
+    "date": "2019-10-19 16:21:11",
+    "img": "https://firebasestorage.googleapis.com/v0/b/ionic-firebase-fruit-app.appspot.com/o/uploads%2F1571473265925_banner2.jpg?alt=media&token=3f90f292-1109-425f-b6ee-f63e618e5f66",
+    "name": "banner2"
+  }
+]
