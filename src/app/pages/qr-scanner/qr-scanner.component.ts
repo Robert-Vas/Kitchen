@@ -44,7 +44,7 @@ export class QrScannerComponent implements OnInit {
   }
 
   private markOrderComplete() {
-    this.order.status = OrderStatus.Done;
+    //this.order.status = OrderStatus.Done;
     this.orderSubscription.unsubscribe();
     this.orderService.editOrder(this.order, this.order.id);
     this.showSuccessMessage();
@@ -65,6 +65,7 @@ export class QrScannerComponent implements OnInit {
       }
     }); 
   }
+  
 
   private checkStatus() {
     if (this.order.status != OrderStatus.Start && this.order.status != OrderStatus.Ready) {
